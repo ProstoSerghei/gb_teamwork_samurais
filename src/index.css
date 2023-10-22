@@ -1,13 +1,90 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.bg-light-custom {
+    background-color: var(--bs-gray-200)
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.chat-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:  15px;
+}
+
+input:focus {
+    box-shadow: none!important;
+    margin-left: 0;
+}
+
+.chat-col {
+    --bs-border-color: var(--bs-gray-400);
+}
+
+.chat-messages, .chat-messages-admin {
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1022%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(229%2c 230%2c 233%2c 1)'%3e%3c/rect%3e%3cpath d='M1512 560L0 560 L0 298.54Q60.17 286.71%2c 72 346.87Q113.45 316.32%2c 144 357.78Q185.75 279.53%2c 264 321.28Q307.57 292.85%2c 336 336.41Q412.79 293.2%2c 456 369.99Q489.56 283.55%2c 576 317.11Q657.07 278.18%2c 696 359.25Q739.54 330.79%2c 768 374.33Q815.16 301.49%2c 888 348.65Q937.58 278.23%2c 1008 327.8Q1049.57 249.37%2c 1128 290.93Q1171.31 262.24%2c 1200 305.55Q1290.76 276.31%2c 1320 367.07Q1349.98 325.05%2c 1392 355.03Q1416.95 259.98%2c 1512 284.93z' fill='rgba(241%2c 242%2c 245%2c 1)'%3e%3c/path%3e%3cpath d='M1512 560L0 560 L0 442.71Q37.98 408.69%2c 72 446.67Q83.85 338.52%2c 192 350.37Q238.69 325.06%2c 264 371.74Q312.41 348.15%2c 336 396.57Q421.37 361.94%2c 456 447.3Q476.54 395.84%2c 528 416.38Q561.29 329.67%2c 648 362.96Q678.4 321.37%2c 720 351.77Q768.84 328.61%2c 792 377.45Q850.58 364.03%2c 864 422.61Q912.49 351.1%2c 984 399.59Q1021.98 317.56%2c 1104 355.54Q1177.59 309.13%2c 1224 382.71Q1267.64 354.35%2c 1296 397.99Q1316.63 346.62%2c 1368 367.24Q1396.93 324.17%2c 1440 353.1Q1489.51 330.62%2c 1512 380.13z' fill='rgba(214%2c 217%2c 223%2c 1)'%3e%3c/path%3e%3cpath d='M1488 560L0 560 L0 429.13Q64.06 421.19%2c 72 485.25Q120.44 461.69%2c 144 510.12Q174 468.13%2c 216 498.13Q233.53 443.66%2c 288 461.2Q330.59 431.79%2c 360 474.39Q430.63 425.01%2c 480 495.64Q487.52 431.16%2c 552 438.68Q582.01 396.69%2c 624 426.7Q697.54 380.25%2c 744 453.79Q814.15 403.94%2c 864 474.09Q879.67 417.75%2c 936 433.42Q1004.26 381.69%2c 1056 449.95Q1101.03 374.98%2c 1176 420.01Q1270.46 394.47%2c 1296 488.93Q1332.83 405.75%2c 1416 442.58Q1445.93 400.51%2c 1488 430.44z' fill='rgba(205%2c 210%2c 216%2c 1)'%3e%3c/path%3e%3cpath d='M1512 560L0 560 L0 582.67Q27.95 490.62%2c 120 518.57Q169.1 495.67%2c 192 544.77Q249.23 530%2c 264 587.22Q265.87 517.09%2c 336 518.96Q383.63 446.6%2c 456 494.23Q509.73 475.96%2c 528 529.69Q590.19 519.88%2c 600 582.08Q628.99 539.07%2c 672 568.05Q722.2 498.25%2c 792 548.44Q822.01 506.46%2c 864 536.47Q935.82 488.29%2c 984 560.11Q1056.89 513%2c 1104 585.89Q1115.44 525.33%2c 1176 536.76Q1202.08 490.84%2c 1248 516.92Q1272.28 469.19%2c 1320 493.47Q1374.83 476.3%2c 1392 531.13Q1442.76 461.88%2c 1512 512.64z' fill='rgba(218%2c 224%2c 224%2c 1)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1022'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.chat-messages {
+    height: 100dvh;
+}
+
+.message.align-self-start {
+    border-bottom-left-radius: 0!important;
+}
+
+.message.align-self-end {
+    border-bottom-right-radius: 0!important;
+    background-color: #d1e7dd!important;
+}
+
+@media (max-width: 991px) {
+
+    .chat-col {
+        border-right: none;
+        border-left: none;
+    }
+}
+
+.scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+.scroll-container::-webkit-scrollbar-track {
+}
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: var(--bs-gray-400);
+    border-radius: 20px;
+}
+
+/* Firefox */
+.scroll-container {
+    scrollbar-width: thin;          /* "auto" или "thin"  */
+    scrollbar-color: var(--bs-gray-400) var(--bs-gray-100);   /* плашка скролла и дорожка */
+}
+
+.admin-container {
+    background: #000;
+    width: 100dvw;
+    height: 100dvh;
+}
+
+.input-group-text:has(+ #chatSearch:focus) {
+    border-color: #86b7fe;
+    color: #86b7fe;
+}
+#chatSearch {
+    transition: none;
+}
+
+.admin-panel {
+    width: 400px;
+    z-index: 5;
+}
+
+@media (max-width: 991px) {
+    .admin-panel {
+        position: absolute;
+        left: 0;
+        display: none!important;
+    }
 }
