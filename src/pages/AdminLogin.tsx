@@ -1,8 +1,17 @@
-import React from "react"
+import React, {useState} from "react"
 import {FloatingLabel, Form} from "react-bootstrap"
-import {Link} from "react-router-dom"
+import {useLazyGetAuthTokenQuery} from "../store/api/auth.api"
+import {useDispatch} from "react-redux";
+import {setAuthToken} from "../store/profileSlice";
 
 export function AdminLogin() {
+    const [authData, setAuthData] = useState<{username: string, password: string}>({
+        username: '',
+        password: ''
+    })
+    const dispatch = useDispatch()
+    const [getAuthToken, {isFetching, data}] = useLazyGetAuthTokenQuery()
+
     return (
         <div className="d-flex justify-content-center p-2">
             <div className="d-flex flex-column align-items-center flex-grow-1 flex-sm-grow-0">
@@ -21,16 +30,33 @@ export function AdminLogin() {
                         label="Имя пользователя"
                         className="mb-3"
                     >
-                        <Form.Control type="text" placeholder="" />
+                        <Form.Control type="text" placeholder=""
+                            value={authData.username}
+                            onChange={ev=>setAuthData(p=>({...p, username: ev.target.value}))}
+                            disabled={isFetching}
+                        />
                     </FloatingLabel>
                     <FloatingLabel
                         controlId="phoneNumber"
                         label="Пароль"
                         className="mb-4"
                     >
-                        <Form.Control type="password" placeholder="" />
+                        <Form.Control type="password" placeholder=""
+                            value={authData.password}
+                            onChange={ev=>setAuthData(p=>({...p, password: ev.target.value}))}
+                            disabled={isFetching}
+                        />
                     </FloatingLabel>
-                    <Link className="btn btn-dark d-block w-100 p-3 fw-semibold fs-5" to="/admin">Войти</Link>
+                    <button className="btn btn-dark d-block w-100 p-3 fw-semibold fs-5"
+                        onClick={()=>{
+                            getAuthToken(authData).then(res=>{
+                                if (res.data) {
+                                    dispatch(setAuthToken(res.data.token))
+                                }
+                            })
+                        }}
+                        disabled={isFetching}
+                    >Войти</button>
                 </div>
             </div>
         </div>
